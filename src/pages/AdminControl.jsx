@@ -140,7 +140,7 @@ const AdminControl = () => {
                   onClick={() => setGlobalRiskMode(mode.id)}
                   className={`p-6 rounded-3xl border-2 cursor-pointer transition-all duration-300 hover:shadow-dark ${
                     isActive 
-                      ? `${mode.gradient} text-white shadow-dark glow-cyan transform scale-105` 
+                      ? `${mode.gradient} text-white shadow-dark glow-cyan transform scale-105 border-transparent` 
                       : 'border-slate-600 hover:border-slate-500 bg-gradient-primary-dark hover:glow-cyan'
                   }`}
                 >
@@ -255,7 +255,7 @@ const AdminControl = () => {
             <select
               value={newOverride.agentId}
               onChange={(e) => setNewOverride(prev => ({ ...prev, agentId: e.target.value }))}
-              className="p-3 border-2 border-slate-600 rounded-2xl text-body-large font-medium shadow-dark bg-dark-card text-primary"
+              className="p-3 border-2 border-slate-600 rounded-2xl text-body-large font-medium shadow-dark bg-dark-card text-primary dropdown-with-arrow"
             >
               <option value="">Select Agent</option>
               {agents.map(agent => (
@@ -266,7 +266,7 @@ const AdminControl = () => {
             <select
               value={newOverride.type}
               onChange={(e) => setNewOverride(prev => ({ ...prev, type: e.target.value }))}
-              className="p-3 border-2 border-slate-600 rounded-2xl text-body-large font-medium shadow-dark bg-dark-card text-primary"
+              className="p-3 border-2 border-slate-600 rounded-2xl text-body-large font-medium shadow-dark bg-dark-card text-primary dropdown-with-arrow"
             >
               <option value="credit_increase">Credit Increase</option>
               <option value="ignore_anomalies">Ignore Anomalies</option>
@@ -363,7 +363,7 @@ const AdminControl = () => {
             <select
               value={newSignal.type}
               onChange={(e) => setNewSignal(prev => ({ ...prev, type: e.target.value }))}
-              className="p-3 border-2 border-slate-600 rounded-2xl text-body-large font-medium shadow-dark bg-dark-card text-primary"
+              className="p-3 border-2 border-slate-600 rounded-2xl text-body-large font-medium shadow-dark bg-dark-card text-primary dropdown-with-arrow"
             >
               <option value="market">Market Condition</option>
               <option value="geopolitical">Geopolitical</option>
@@ -374,7 +374,7 @@ const AdminControl = () => {
             <select
               value={newSignal.severity}
               onChange={(e) => setNewSignal(prev => ({ ...prev, severity: e.target.value }))}
-              className="p-3 border-2 border-slate-600 rounded-2xl text-body-large font-medium shadow-dark bg-dark-card text-primary"
+              className="p-3 border-2 border-slate-600 rounded-2xl text-body-large font-medium shadow-dark bg-dark-card text-primary dropdown-with-arrow"
             >
               <option value="low">Low Impact</option>
               <option value="medium">Medium Impact</option>

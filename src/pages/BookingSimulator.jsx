@@ -98,7 +98,7 @@ const BookingSimulator = () => {
               <select
                 value={selectedAgent}
                 onChange={(e) => setSelectedAgent(e.target.value)}
-                className="w-full p-4 border-2 border-slate-600 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-body-large font-medium bg-dark-card text-primary shadow-dark"
+                className="w-full p-4 border-2 border-slate-600 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-body-large font-medium bg-dark-card text-primary shadow-dark dropdown-with-arrow"
               >
                 {agents.map(agent => (
                   <option key={agent.id} value={agent.id}>

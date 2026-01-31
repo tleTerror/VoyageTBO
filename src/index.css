@@ -830,43 +830,103 @@ input::placeholder, textarea::placeholder {
   color: #ec4899;
 }
 
-/* Enhanced dropdown styling */
+/* Enhanced dropdown styling with visible arrows */
 select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 0.5rem center;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M7 10l5 5 5-5'/%3e%3c/svg%3e");
+  background-position: right 1rem center;
   background-repeat: no-repeat;
-  background-size: 1.5em 1.5em;
-  padding-right: 2.5rem;
+  background-size: 20px 20px;
+  padding-right: 3rem;
+  cursor: pointer;
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  min-height: 3.5rem;
 }
 
 select:focus {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2306b6d4' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3e%3cpath stroke='%2306b6d4' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M7 10l5 5 5-5'/%3e%3c/svg%3e");
+}
+
+select:hover {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3e%3cpath stroke='%2306b6d4' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M7 10l5 5 5-5'/%3e%3c/svg%3e");
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+  transform: translateY(-2px);
+  border-color: #06b6d4;
+}
+
+/* Better active/selected state for dropdowns */
+select:active {
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.25), 0 0 25px rgba(6, 182, 212, 0.2);
+  transform: translateY(-2px);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3e%3cpath stroke='%2306b6d4' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M7 10l5 5 5-5'/%3e%3c/svg%3e");
+}
+
+/* Alternative dropdown arrow using ::after pseudo-element for better visibility */
+.dropdown-with-arrow {
+  position: relative;
+  background-image: none !important;
+}
+
+.dropdown-with-arrow::after {
+  content: '▼';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dropdown-with-arrow:hover::after {
+  color: #06b6d4;
+}
+
+.dropdown-with-arrow:focus::after {
+  color: #06b6d4;
 }
 
 select option {
-  background: rgba(30, 41, 59, 0.95);
+  background: rgba(15, 23, 42, 0.98);
   color: #e2e8f0;
-  padding: 0.75rem;
-  border-radius: 8px;
-  margin: 2px 0;
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin: 8px 0;
+  font-weight: 600;
+  border: 2px solid rgba(71, 85, 105, 0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
 select option:hover {
-  background: rgba(6, 182, 212, 0.2);
+  background: rgba(6, 182, 212, 0.3);
+  border-color: rgba(6, 182, 212, 0.6);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  transform: translateY(-1px);
+  border-radius: 20px;
 }
 
 select option:checked {
   background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
   color: white;
+  border-color: #06b6d4;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+  transform: scale(1.02);
 }
 
 /* Better form focus states */
 input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: #06b6d4;
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.1);
-  transform: translateY(-1px);
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.25), 0 0 25px rgba(6, 182, 212, 0.15);
+  transform: translateY(-2px);
   background: rgba(30, 41, 59, 0.95);
 }
 
@@ -886,6 +946,21 @@ input::placeholder, textarea::placeholder {
 .btn:disabled:hover {
   transform: none;
   box-shadow: none;
+}
+
+/* Enhanced select styling for better visibility */
+select {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  min-height: 3.5rem;
+}
+
+/* Better active/selected state for dropdowns */
+select:active {
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.25), 0 0 25px rgba(6, 182, 212, 0.2);
+  transform: translateY(-2px);
 }
 /* Additional gradient classes for info */
 .bg-gradient-info {
