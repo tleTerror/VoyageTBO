@@ -380,6 +380,11 @@ input, select, textarea {
   background: rgba(30, 41, 59, 0.8);
   color: #e2e8f0;
   backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+input::placeholder, textarea::placeholder {
+  text-align: center;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -844,6 +849,8 @@ select {
   font-weight: 600;
   line-height: 1.5;
   min-height: 3.5rem;
+  text-align: center;
+  text-align-last: center;
 }
 
 select:focus {
@@ -902,6 +909,7 @@ select option {
   border: 2px solid rgba(71, 85, 105, 0.4);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 select option:hover {
@@ -934,6 +942,7 @@ input:focus, select:focus, textarea:focus {
 input::placeholder, textarea::placeholder {
   color: #64748b;
   opacity: 0.8;
+  text-align: center;
 }
 
 /* Improved button disabled state */

@@ -416,29 +416,31 @@ const AdminControl = () => {
               signal.severity === 'medium' ? 'bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-400' :
               'bg-gradient-to-r from-green-50 to-green-100 border-green-400'
             }`}>
-              <div className="flex items-start justify-between">
+              <div className="flex items-start gap-6">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-center gap-4 mb-2">
                     <span className="text-xl font-bold text-gray-900">{signal.message}</span>
-                    <span className={`px-4 py-2 rounded-2xl text-sm font-bold shadow-soft ${
-                      signal.severity === 'high' ? 'bg-gradient-danger text-white' :
-                      signal.severity === 'medium' ? 'bg-gradient-warning text-white' :
-                      'bg-gradient-success text-white'
-                    }`}>
-                      {signal.severity} • {signal.type}
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <span className={`px-4 py-2 rounded-2xl text-sm font-bold shadow-soft ${
+                        signal.severity === 'high' ? 'bg-gradient-danger text-white' :
+                        signal.severity === 'medium' ? 'bg-gradient-warning text-white' :
+                        'bg-gradient-success text-white'
+                      }`}>
+                        {signal.severity} • {signal.type}
+                      </span>
+                      <div className={`p-3 rounded-2xl ${
+                        signal.severity === 'high' ? 'bg-gradient-danger' :
+                        signal.severity === 'medium' ? 'bg-gradient-warning' :
+                        'bg-gradient-success'
+                      }`}>
+                        <AlertTriangle className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
                   </div>
                   <p className="text-lg text-gray-700 mb-3">{signal.suggestion}</p>
                   <p className="text-sm text-gray-600 font-medium">
                     {signal.timestamp.toLocaleString()}
                   </p>
-                </div>
-                <div className={`p-3 rounded-2xl ${
-                  signal.severity === 'high' ? 'bg-gradient-danger' :
-                  signal.severity === 'medium' ? 'bg-gradient-warning' :
-                  'bg-gradient-success'
-                }`}>
-                  <AlertTriangle className="w-6 h-6 text-white" />
                 </div>
               </div>
             </div>
